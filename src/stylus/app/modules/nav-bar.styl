@@ -1,0 +1,41 @@
+section#nav-bar
+	position: fixed
+	width: 100%
+	height: $nav-bar-height
+	background: #222
+	border-bottom: 1px solid $blacky
+	box-sizing: border-box
+	top: 0
+	z-index: 2
+	
+	.nav-bar-inner
+		max-width: $nav-bar-width
+		margin: auto
+		height: $nav-bar-height
+		
+	#logo
+		width: 78px
+		height: 100%
+		float: left
+		background: brown
+		
+	#navigation
+		width: ($nav-bar-width - 78)
+		height: 100%
+		float: left
+		
+		a
+			height: $nav-bar-height
+			line-height: ($nav-bar-height + 2)
+			padding: 0 1rem
+			color: #999
+			text-decoration: none
+			display: block
+			float: left
+			transition: all 200ms ease
+			&:hover
+				color: #eee
+			&.active
+			&:active
+				background-color: $blacky
+				color: #eee
