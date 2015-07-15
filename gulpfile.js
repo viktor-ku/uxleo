@@ -1,4 +1,4 @@
-var gulp, concat, connect, jade, plumber, stylus, uglify, watch, imagemin, rename, postcss, autoprefixer, csso, runSequence;
+var gulp, concat, jade, plumber, stylus, uglify, watch, imagemin, rename, postcss, autoprefixer, csso, runSequence, browserSync;
 
 var go = function(data) {
 	if (data === 'gulp')
@@ -9,7 +9,6 @@ var go = function(data) {
 
 gulp = go('gulp');
 concat = go('concat');
-connect = go('connect');
 jade = go('jade');
 plumber = go('plumber');
 stylus = go('stylus');
@@ -21,12 +20,13 @@ postcss = go('postcss');
 autoprefixer = require('autoprefixer-core');
 csso = go('csso');
 runSequence = require('run-sequence');
+browserSync = require('browser-sync').create();
 
 gulp.task('serve', function() {
-	connect.server({
-		port: 4400,
-		root: 'dest/',
-		livereload: true
+	browserSync.init({
+		server: {
+			baseDir: 'dest/'
+		}
 	});
 });
 
@@ -36,7 +36,7 @@ gulp.task('jade', function() {
 		.pipe(jade({ pretty: true }))
 		.pipe(rename('index.html'))
 		.pipe(gulp.dest('dest/'))
-		.pipe(connect.reload());
+		.pipe(browserSync.stream())
 });
 
 gulp.task('jade:production', function() {
@@ -45,7 +45,7 @@ gulp.task('jade:production', function() {
 		.pipe(jade())
 		.pipe(rename('index.html'))
 		.pipe(gulp.dest('dest/'))
-		.pipe(connect.reload());
+		.pipe(browserSync.stream())
 });
 
 gulp.task('stylus:app', function() {
@@ -53,7 +53,7 @@ gulp.task('stylus:app', function() {
 		.pipe(plumber())
 		.pipe(stylus())
 		.pipe(gulp.dest('dest/assets/css/'))
-		.pipe(connect.reload());
+		.pipe(browserSync.stream())
 });
 
 gulp.task('compile-stylus', function() {
@@ -61,7 +61,7 @@ gulp.task('compile-stylus', function() {
 		.pipe(plumber())
 		.pipe(stylus())
 		.pipe(gulp.dest('dest/assets/css/'))
-		.pipe(connect.reload());
+		.pipe(browserSync.stream())
 });
 
 gulp.task('postcss', function() {
@@ -91,7 +91,7 @@ gulp.task('stylus:vendor', function() {
 		.pipe(concat('vendor.css'))
 		.pipe(csso())
 		.pipe(gulp.dest('dest/assets/css/'))
-		.pipe(connect.reload());
+		.pipe(browserSync.stream())
 });
 
 var appLoad = function(data) {
@@ -113,7 +113,7 @@ gulp.task('js:app', function() {
 		.pipe(plumber())
 		.pipe(concat('app.js'))
 		.pipe(gulp.dest('dest/assets/js/'))
-		.pipe(connect.reload());
+		.pipe(browserSync.stream())
 });
 
 gulp.task('js:app:production', function() {
@@ -122,7 +122,7 @@ gulp.task('js:app:production', function() {
 		.pipe(concat('app.js'))
 		.pipe(uglify())
 		.pipe(gulp.dest('dest/assets/js/'))
-		.pipe(connect.reload());
+		.pipe(browserSync.stream())
 });
 
 gulp.task('js:vendor', function() {
@@ -131,7 +131,7 @@ gulp.task('js:vendor', function() {
 		.pipe(concat('vendor.js'))
 		.pipe(uglify())
 		.pipe(gulp.dest('dest/assets/js/'))
-		.pipe(connect.reload());
+		.pipe(browserSync.stream())
 });
 
 gulp.task('imagemin', function() {
@@ -142,7 +142,7 @@ gulp.task('imagemin', function() {
 			optimizationLevel: 7
 		}))
 		.pipe(gulp.dest('dest/assets/images/'))
-		.pipe(connect.reload());
+		.pipe(browserSync.stream())
 });
 
 gulp.task('watch', function() {
@@ -170,11 +170,11 @@ gulp.task('watch', function() {
 gulp.task('fonts', function() {
 	return gulp.src('src/fonts/**/*')
 		.pipe(gulp.dest('dest/assets/fonts/'))
-		.pipe(connect.reload());
+		.pipe(browserSync.stream())
 });
 
 gulp.task('default', [
-	'serve', 'watch', 'build:dev'
+	'serve', 'watch'
 ]);
 
 gulp.task('build:dev:all', [
