@@ -1,0 +1,95 @@
+section#portfolio
+	header
+		height: 270px
+		background-image: url('/assets/images/bg/divider3.jpg')
+		background-repeat: no-repeat
+		background-size: cover
+		text-align: center
+		
+		h3
+			font-family: Raleway, sans-serif
+			font-size: 2.5em
+			font-weight: 300
+			color: #fff
+			letter-spacing: 1px
+			text-transform: uppercase
+			border-bottom: 2px solid #fff
+			padding-bottom: .9rem
+			margin-top: 100px
+			display: inline-block
+			
+	.container
+		width: 1100px
+		margin: 3rem auto
+		
+		.row
+			clearfix()
+			
+			&:nth-child(1)
+				margin-bottom: .75rem
+
+		.item
+			width: 32%
+			float: left
+			box-sizing: border-box
+			margin-right: 2%
+			height: 240px
+			position: relative
+			overflow: hidden
+
+			&:nth-last-child(1)
+				margin-right: 0
+
+		img
+			width: 100%
+			height: auto
+			transform: scale(1)
+			transition: all 200ms ease-out
+			position: relative
+
+			&.hovered
+				transform: scale(1.1)
+				
+		.overlay
+			opacity: 0
+			visibility: hidden
+			background rgba($red, .75)
+			position: absolute
+			top: 0
+			bottom: 0
+			left: 0
+			right: 0
+			text-align: center
+			transition: all 200ms ease-out
+			z-index: 1
+			
+			&.show
+				opacity: 1
+				visibility: visible
+			
+			button, p
+				margin: 0
+				font-family: Lato, sans-serif
+				font-weight: 700
+
+			p
+				margin-top: 3.5srem
+				font-size: 1.3em
+				color: #fff
+
+			button
+				margin-top: 3.5rem
+				font-size: 1.1em
+				font-weight: 400
+				background: rgba(#fff, .75)
+				border: none
+				outline: none
+				padding: .5rem .9rem
+				color: #000
+				transition: background 300ms ease
+				box-shadow: 0 .2rem 0 rgba(#000, .5)
+				&:hover
+					background rgba(#fff, 1)
+				&:focus
+					box-shadow: none
+					transform: translateY(.2rem)

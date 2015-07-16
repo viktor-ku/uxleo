@@ -1,0 +1,19 @@
+{
+  "name": "uxleo.zero",
+  "version": "0.0.0",
+  "authors": [
+    "Viktor <viktor.konsta@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize.styl": "~3.0.3"
+  }
+}
