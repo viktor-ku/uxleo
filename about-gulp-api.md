@@ -1,4 +1,4 @@
-###Gulp avaliable commands###  
+### Gulp avaliable commands
 
 `$ gulp serve`  
 **Browser Sync working now! There are few helpers you'll se through the terminal while working**  
@@ -12,10 +12,12 @@
 
 `$ gulp stylus:app`  
 **compile stylus into css**  
+
 `$ gulp stylus:app:production`  
 **compile stylus into css**  
 **rebuilding css with postcss**  
 **a few more optimizations like compress etc with css**  
+
 `$ gulp stylus:vendor`  
 **parse one file - vendor.styl into vendor.css**  
 **see /src/stylus/vendor/vendor.styl**  
