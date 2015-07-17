@@ -14,6 +14,7 @@ var sectionPortfolio = document.getElementById('portfolio');
 var items = sectionPortfolio.getElementsByClassName('item');
 
 for (var i = items.length - 1; i >= 0; i--) {
+
 	items[i].addEventListener('mouseenter', function() {
 		// add class 'hovered'
 		var item = this;
@@ -23,6 +24,7 @@ for (var i = items.length - 1; i >= 0; i--) {
 		hoveredImage.classList.add('hovered');
 		overlay.classList.add('show');
 	});
+
 	items[i].addEventListener('mouseleave', function() {
 		// remove class 'hovered'
 		var item = this;
@@ -32,4 +34,30 @@ for (var i = items.length - 1; i >= 0; i--) {
 		hoveredImage.classList.remove('hovered');
 		overlay.classList.remove('show');
 	});
+
+	var buttons = items[i].getElementsByTagName('button');
+	for (var b = buttons.length - 1; b >= 0; b--) {
+		buttons[b].addEventListener('click', function(e) {
+			// -->
+			var dataOutlet = this.dataset.outlet;
+
+			var modal = document.getElementById(dataOutlet);
+
+			if (modal === null) {
+				console.error('No match modal here!' + ' => ' + modal);
+			} else {
+				modal.classList.add('show-modal');
+			}
+
+			document.body.classList.add('no-scroll');
+
+			var closeBtn = modal.getElementsByClassName('modal-close')[0];
+			closeBtn.addEventListener('click', function() {
+				modal.classList.remove('show-modal');
+				document.body.classList.remove('no-scroll');
+			});
+			// <--
+		});
+	};
+
 };

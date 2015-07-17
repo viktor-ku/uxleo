@@ -1,0 +1,10 @@
+each modal in modals
+	.modal(id="#{modal.outlet}")
+		.modal-window
+			.header
+				p #{modal.title}
+				button.modal-close back
+			.image
+				img(src="#{modal.src}", alt="#{modal.title}")
+			.article
+				p #{modal.content}
