@@ -1,55 +1,50 @@
-**Gulp avaliable commands**
+###Gulp avaliable commands###  
 
 `$ gulp serve`  
-*make a simple server on port 4400 with livereloading and root is 'dest'*  
-*http://localhost:4400/*  
+**Browser Sync working now! There are few helpers you'll se through the terminal while working**  
 
 `$ gulp jade`  
-*compile /src/jade/app.jade into /dest/index.html*  
-*without compressing*  
+**compile /src/jade/app.jade into /dest/index.html**  
+**without compressing**  
 
-`$ gulp jade:production`  
-*compile /src/jade/app.jade into /dest/index.html*  
-*with compressing*  
+`$ gulp jade:production`    
+**with compressing**  
 
 `$ gulp stylus:app`  
-*stylus*  
+**compile stylus into css**  
 `$ gulp stylus:app:production`  
-*stylus*  
-*postcss*  
-*optimization, compress*  
+**compile stylus into css**  
+**rebuilding css with postcss**  
+**a few more optimizations like compress etc with css**  
 `$ gulp stylus:vendor`  
-*grab all vendor libraries and min them*  
+**parse one file - vendor.styl into vendor.css**  
+**see /src/stylus/vendor/vendor.styl**  
 
 `$ gulp js:app`  
 `$ gulp js:app:production`  
 `$ gulp js:vendor`  
 
 `$ gulp imagemin`  
-*compressing all images and put them in the same directories like they were*  
+**compressing all images**  
 
 `$ gulp watch`  
-*watching for*  
-*/src/js*  
-*/src/jade*  
-*/src/stylus*  
+**watching for everythink you want to change, really :)**  
 
 `$ gulp fonts`  
-*just copy /src/fonts into /dest/assets/fonts*  
+**copy fonts from /src to /dest**  
 
 `$ gulp build:dev:all`  
-*build just everythink from /src into /dest*  
-*to make development version of the project*  
+**build just everythink from /src into /dest**  
+**to make development version of the project**  
 
 `$ gulp build:dev`
-*build stylus, jade, js only*  
-*without vendors*  
+**build stylus, jade and js**  
 
 `$ gulp build:production:all`  
-*build 'done' project from /src*  
+**build 'done' project from /src**  
 
-`$ gulp start`  
-*build:dev:all && gulp*  
+`$ gulp go`  
+**builds a dev project and starting the serve and watch**  
 
 `$ gulp`  
-*serve /dest && watch /src && build:dev*  
+**starting serve and watching**  

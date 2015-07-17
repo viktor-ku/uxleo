@@ -1,24 +1,15 @@
-# uxleo zero
+## uxleo zero
 
-Here we have source code of the project. 
-The goal is refactoring, so the main place to go is /src directory.
+Here we have source code of the project.
 
 **About file structure** see in `about-files`  
 **About gulp commands** avaliable see in `about-gulp-api`  
 
-**To start working on project**
+**To quick start**
 
 ```
 npm install
-gulp build:dev:all
-gulp
+gulp go
 ```
 
-or just
-
-```
-npm install
-gulp start
-```
-
-**NB** In this case server will be started before the building is completed
+That will build a dev version of the project into /dest and start serve and watch :)

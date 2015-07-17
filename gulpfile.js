@@ -189,9 +189,6 @@ gulp.task('build:production:all', [
 	'stylus:app:production', 'js:app:production', 'stylus:vendor', 'js:vendor', 'fonts', 'imagemin', 'jade:production'
 ]);
 
-gulp.task('start', function() {
-	return runSequence(
-		'build:dev:all',
-		'default'
-	);
+gulp.task('go', ['build:dev:all'], function() {
+	gulp.start('default');
 });
