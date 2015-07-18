@@ -1,10 +1,13 @@
-each modal in modals
+
+//- see 'portfolioData' in data.jade
+
+each modal in portfolioData
 	.modal(id="#{modal.outlet}")
 		.modal-window
 			.header
-				p #{modal.title}
+				p #{modal.modalTitle}
 				button.modal-close back
 			.image
-				img(src="#{modal.src}", alt="#{modal.title}")
+				img(src="#{modal.src}", alt="#{modal.modalTitle}")
 			.article
-				p #{modal.content}
+				p #{modal.article}
