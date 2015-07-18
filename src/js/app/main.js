@@ -1,15 +1,6 @@
-// prevent default event for navigation links
-var navLinks = document.getElementById('navigation').childNodes;
 
-for (var i = navLinks.length - 1; i >= 0; i--) {
-	navLinks[i].onclick = function(e) {
-		e.preventDefault();
-	};
-};
+// portfolio all stuff
 
-// on hover '.item' in 'section#portfolio'
-// change image class to 'hovered' it will scale it up a bit with css transitions
-// and give class '.show' to '.overlay' to show text and button "Take a Look"
 var sectionPortfolio = document.getElementById('portfolio');
 var items = sectionPortfolio.getElementsByClassName('item');
 
@@ -50,7 +41,7 @@ for (var i = items.length - 1; i >= 0; i--) {
 			document.body.classList.add('no-scroll');
 
 			var closeBtn = modal.getElementsByClassName('modal-close')[0];
-			
+
 			closeBtn.addEventListener('click', function() {
 				modal.classList.remove('show-modal');
 				document.body.classList.remove('no-scroll');
@@ -65,4 +56,26 @@ for (var i = items.length - 1; i >= 0; i--) {
 		});
 	};
 
+};
+
+// smooth scroll stuff
+
+var navLinks = document.getElementById('navigation').childNodes;
+
+var section = {
+	about: document.getElementById('welcome'),
+	service: document.getElementById('ux-engineering'),
+	value: document.getElementById('front-end-sol'),
+	portfolio: document.getElementById('portfolio'),
+	me: document.getElementById('persona'),
+	contact: document.getElementById('tallinn')
+};
+
+for (var i = navLinks.length - 1; i >= 0; i--) {
+	navLinks[i].onclick = function(e) {
+		e.preventDefault();
+		var href = this.pathname.slice(1);
+		var dest = section[href].id;
+		scroll.to(dest);
+	};
 };

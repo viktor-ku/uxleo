@@ -99,7 +99,8 @@ var appLoad = function(data) {
 };
 
 var appOrder = [
-	appLoad('main')
+	appLoad('smoothscroll'),
+	appLoad('main'),
 ];
 
 var vendorLoad = function(data) {
