@@ -38,9 +38,7 @@ for (var i = items.length - 1; i >= 0; i--) {
 	var buttons = items[i].getElementsByTagName('button');
 	for (var b = buttons.length - 1; b >= 0; b--) {
 		buttons[b].addEventListener('click', function(e) {
-			// -->
 			var dataOutlet = this.dataset.outlet;
-
 			var modal = document.getElementById(dataOutlet);
 
 			if (modal === null) {
@@ -52,11 +50,18 @@ for (var i = items.length - 1; i >= 0; i--) {
 			document.body.classList.add('no-scroll');
 
 			var closeBtn = modal.getElementsByClassName('modal-close')[0];
+			
 			closeBtn.addEventListener('click', function() {
 				modal.classList.remove('show-modal');
 				document.body.classList.remove('no-scroll');
 			});
-			// <--
+
+			modal.addEventListener('click', function(e) {
+				if (e.target === this) {
+					modal.classList.remove('show-modal');
+					document.body.classList.remove('no-scroll');
+				}
+			});
 		});
 	};
 
