@@ -60,22 +60,26 @@ for (var i = items.length - 1; i >= 0; i--) {
 
 // smooth scroll stuff
 
-var navLinks = document.getElementById('navigation').childNodes;
+var navLinks = document.getElementById('nav').childNodes;
+var toContactBtn = document.getElementById('to-contact');
 
-var section = {
-	about: document.getElementById('welcome'),
-	service: document.getElementById('ux-engineering'),
-	value: document.getElementById('front-end-sol'),
-	portfolio: document.getElementById('portfolio'),
-	me: document.getElementById('persona'),
-	contact: document.getElementById('tallinn')
+var mobile = false;
+
+var navigate = function(event, item) {
+	if (!mobile) {
+		event.preventDefault();
+		var dest = item.hash.slice(1);
+		scroll.to(dest);
+		return;
+	}
 };
 
+toContactBtn.addEventListener('click', function(e) {
+	navigate(e, this);
+});
+
 for (var i = navLinks.length - 1; i >= 0; i--) {
-	navLinks[i].onclick = function(e) {
-		e.preventDefault();
-		var href = this.pathname.slice(1);
-		var dest = section[href].id;
-		scroll.to(dest);
-	};
+	navLinks[i].addEventListener('click', function(e) {
+		navigate(e, this);
+	});
 };

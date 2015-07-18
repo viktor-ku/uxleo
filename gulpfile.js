@@ -99,6 +99,7 @@ var appLoad = function(data) {
 };
 
 var appOrder = [
+	appLoad('core-functions'),
 	appLoad('smoothscroll'),
 	appLoad('main'),
 ];
