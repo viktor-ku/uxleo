@@ -8,7 +8,6 @@ src = "src"
 # define where your source/destination paths and files are
 
 config =
-	root: "#{dest}/"
 	path:
 		dest:
 			html: "#{dest}/"
@@ -30,5 +29,13 @@ config =
 			js: []
 		dest:
 			css: "#{dest}/assets/css/app.css"
+	watch:
+		stylus:
+			app: 'src/stylus/app/**/*.styl'
+			vendor: 'src/stylus/vendor/vendor.styl'
+		js:
+			app: 'src/js/app/**/*.js'
+			vendor: 'src/js/vendor/*.js'
+		jade: 'src/jade/**/*.jade'
 
 module.exports = config

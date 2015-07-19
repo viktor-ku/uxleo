@@ -16,7 +16,7 @@ config = require './config'
 gulp.task 'serve', ->
 	browserSync.init
 		server:
-			baseDir: config.root
+			baseDir: config.path.dest.html
 
 gulp.task 'jade', ->
 	gulp.src config.file.src.jade
@@ -86,20 +86,20 @@ gulp.task 'imagemin', ->
 		.pipe do browserSync.stream
 
 gulp.task 'watch', ->
-	watch 'src/stylus/app/**/*.styl', ->
+	watch config.watch.stylus.app, ->
 		gulp.start 'stylus:app'
 
-	watch 'src/js/app/**/*.js', ->
+	watch config.watch.stylus.vendor, ->
+		gulp.start 'stylus:vendor'
+
+	watch config.watch.js.app, ->
 		gulp.start 'js:app'
 
-	watch 'src/jade/**/*.jade', ->
-		gulp.start 'jade'
-
-	watch 'src/js/vendor/*.js', ->
+	watch config.watch.js.vendor, ->
 		gulp.start 'js:vendor'
 
-	watch 'src/stylus/vendor/**/*', ->
-		gulp.start 'stylus:vendor'
+	watch config.watch.jade, ->
+		gulp.start 'jade'
 
 	return
 
