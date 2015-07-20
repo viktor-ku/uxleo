@@ -4,38 +4,40 @@
 	height: $nav-bar-height
 	background: rgba(#222, .9)
 	border-bottom: 1px solid $blacky
-	box-sizing: border-box
-	top: 0
 	z-index: 2
 
 	.nav-bar-inner
-		max-width: $nav-bar-width
+		width: $nav-bar-width
 		margin: auto
 		height: $nav-bar-height
+		padding-left: 1rem
 		
 	#logo
-		width: 78px
-		height: 100%
 		float: left
-		background: brown
+		background: url('/assets/icons/logo.svg') no-repeat
+		background-size: contain
+		width: 4rem
+		height: 1.5rem
+		box-sizing: border-box
+		margin-top: .9rem
 		
 	#nav
-		width: ($nav-bar-width - 78)
 		height: 100%
 		float: left
 		
 		a
 			height: $nav-bar-height
-			line-height: ($nav-bar-height + 2)
+			line-height: ($nav-bar-height + 3)
 			padding: 0 1rem
 			color: #999
 			text-decoration: none
 			display: block
 			float: left
-			transition: all 200ms ease
+			transition: all 200ms ease-out
 			&:hover
 				color: #eee
+				text-shadow: 0 0 .33rem rgba(#eee, .33)
 			&.active
 			&:active
-				background-color: $blacky
+				background-color: rgba($blacky, .9)
 				color: #eee

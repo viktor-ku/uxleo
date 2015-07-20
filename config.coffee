@@ -20,9 +20,12 @@ config =
 			jade: "#{src}/jade/index.jade"
 			stylus: "#{src}/stylus/app/app.styl"
 			js: [
+					"#{src}/js/app/intro/i.js"
 					"#{src}/js/app/core-functions.js"
 					"#{src}/js/app/smoothscroll.js"
+					"#{src}/js/app/mobile.js"
 					"#{src}/js/app/main.js"
+					"#{src}/js/app/intro/o.js"
 				]
 			image: "#{src}/images/**/*"
 			icons: "#{src}/icons/**/*"

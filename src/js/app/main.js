@@ -38,8 +38,6 @@ for (var i = items.length - 1; i >= 0; i--) {
 				modal.classList.add('show-modal');
 			}
 
-			document.body.classList.add('no-scroll');
-
 			var closeBtn = modal.getElementsByClassName('modal-close')[0];
 
 			closeBtn.addEventListener('click', function() {
@@ -60,7 +58,7 @@ for (var i = items.length - 1; i >= 0; i--) {
 
 // smooth scroll stuff
 
-var navLinks = document.getElementById('nav').childNodes;
+var navLinks = document.getElementById('nav').children;
 var toContactBtn = document.getElementById('to-contact');
 
 var section = {
@@ -93,9 +91,9 @@ var section = {
 };
 
 var searchLinkByHash = function(data) {
-	for (var i = navLinks.length - 1; i >= 0; i--) {
-		if (navLinks[i].hash.slice(1) === data) {
-			return navLinks[i];
+	for (var z = navLinks.length - 1; z >= 0; z--) {
+		if (navLinks[z].hash.slice(1) === data) {
+			return navLinks[z];
 		}
 	};
 };
@@ -118,10 +116,8 @@ var switchNavigationTab = function(data) {
 	}
 };
 
-var mobile = false;
-
 var navigate = function(event, item) {
-	if (!mobile) {
+	if (!mobile.any()) {
 		event.preventDefault();
 		var dest = item.hash.slice(1);
 		scroll.to(dest);
@@ -131,6 +127,7 @@ var navigate = function(event, item) {
 
 toContactBtn.addEventListener('click', function(e) {
 	navigate(e, this);
+	switchNavigationTab(link.contact);
 });
 
 for (var i = navLinks.length - 1; i >= 0; i--) {
