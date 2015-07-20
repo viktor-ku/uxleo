@@ -6,13 +6,13 @@
 */
 
 var scroll = {
-	iterr : 15, // set timeout miliseconds ..decreased with 1ms for each iteration
+	iterr : 16, // set timeout miliseconds ..decreased with 1ms for each iteration
 	tm : null, //timeout local variable
 	
 	stopShow: function()
 	{
 		clearTimeout(this.tm); // stopp the timeout
-		this.iterr = 15; // reset milisec iterator to original value
+		this.iterr = 16; // reset milisec iterator to original value
 	},
 	getRealTop : function (el) // helper function instead of jQuery
 	{

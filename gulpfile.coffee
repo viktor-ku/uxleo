@@ -11,6 +11,7 @@ autoprefixer = require 'autoprefixer-core'
 csso = require 'gulp-csso'
 runSequence = require 'run-sequence'
 browserSync = require('browser-sync').create()
+svgmin = require 'gulp-svgmin'
 config = require './config'
 
 gulp.task 'serve', ->
@@ -85,6 +86,12 @@ gulp.task 'imagemin', ->
 		.pipe gulp.dest config.path.dest.image
 		.pipe do browserSync.stream
 
+gulp.task 'icons', ->
+	gulp.src config.file.src.icons
+		.pipe do svgmin
+		.pipe gulp.dest config.path.dest.icons
+		.pipe do browserSync.stream
+
 gulp.task 'watch', ->
 	watch config.watch.stylus.app, ->
 		gulp.start 'stylus:app'
@@ -101,6 +108,9 @@ gulp.task 'watch', ->
 	watch config.watch.jade, ->
 		gulp.start 'jade'
 
+	watch config.watch.icons, ->
+		gulp.start 'icons'
+
 	return
 
 gulp.task 'default', ['serve', 'watch']
@@ -111,6 +121,7 @@ gulp.task 'build:dev:all',
 	'js:app'
 	'jade'
 	'imagemin'
+	'icons'
 	'js:vendor'
 	'stylus:vendor'
 ]
@@ -129,6 +140,7 @@ gulp.task 'build:production:all',
 	'stylus:vendor'
 	'js:vendor'
 	'imagemin'
+	'icons'
 	'jade:production'
 ]
 

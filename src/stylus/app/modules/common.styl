@@ -13,9 +13,7 @@ blockquote
 		content '”'
 		
 body.no-scroll
-	overflow: hidden
-	position: relative
-	top: 1.75%
+	//
 
 button
 	background: transparent
@@ -25,3 +23,25 @@ button
 ::selection
 	background: #16a085
 	color: #a4003a
+
+.icon
+.icon-small
+	display: inline-block
+
+.icon
+	margin-bottom: 1rem
+	$square(3rem)
+	transition: all 500ms cubic-bezier(0.76, 0.04, 0, 1.36)
+	&:hover
+		transform: rotate(360deg) scale(1.4)
+	$put-icon("think")
+	$put-icon("code")
+	$put-icon("design")
+.icon-small
+	$square(1.3rem)
+	margin: 0 .5rem -.3rem 0
+	$put-icon("mail")
+	$put-icon("cv")
+	$put-icon("home")
+	$put-icon("pinterest")
+	$put-icon("telephone")
