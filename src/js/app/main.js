@@ -81,5 +81,10 @@ toContactBtn.addEventListener('click', function(e) {
 for (var i = navLinks.length - 1; i >= 0; i--) {
 	navLinks[i].addEventListener('click', function(e) {
 		navigate(e, this);
+		var siblings = this.parentNode.childNodes;
+		for (var i = siblings.length - 1; i >= 0; i--) {
+			siblings[i].classList.remove('active');
+		};
+		this.classList.add('active');
 	});
 };
