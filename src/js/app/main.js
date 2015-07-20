@@ -63,6 +63,61 @@ for (var i = items.length - 1; i >= 0; i--) {
 var navLinks = document.getElementById('nav').childNodes;
 var toContactBtn = document.getElementById('to-contact');
 
+var section = {
+	about: document.getElementById('about'),
+	service: document.getElementById('service'),
+	value: document.getElementById('value'),
+	portfolio: document.getElementById('portfolio'),
+	me: document.getElementById('me'),
+	contact: document.getElementById('contact'),
+	offsetTop: function(data) {
+		if (typeof data === 'string') {
+			switch(data) {
+				case 'about':
+					return this.about.offsetTop;
+				case 'service':
+					return this.service.offsetTop;
+				case 'value':
+					return this.value.offsetTop;
+				case 'portfolio':
+					return this.portfolio.offsetTop;
+				case 'me':
+					return this.me.offsetTop;
+				case 'contact':
+					return this.contact.offsetTop;
+				default:
+					return debug(data)
+			}
+		}
+	},
+};
+
+var searchLinkByHash = function(data) {
+	for (var i = navLinks.length - 1; i >= 0; i--) {
+		if (navLinks[i].hash.slice(1) === data) {
+			return navLinks[i];
+		}
+	};
+};
+
+var link = {
+	about: searchLinkByHash('about'),
+	service: searchLinkByHash('service'),
+	value: searchLinkByHash('value'),
+	portfolio: searchLinkByHash('portfolio'),
+	me: searchLinkByHash('me'),
+	contact: searchLinkByHash('contact'),
+};
+
+var switchNavigationTab = function(data) {
+	if (data.className !== 'active') {
+		for (var i = navLinks.length - 1; i >= 0; i--) {
+			navLinks[i].classList.remove('active');
+		};
+		data.classList.add('active');
+	}
+};
+
 var mobile = false;
 
 var navigate = function(event, item) {
@@ -81,10 +136,26 @@ toContactBtn.addEventListener('click', function(e) {
 for (var i = navLinks.length - 1; i >= 0; i--) {
 	navLinks[i].addEventListener('click', function(e) {
 		navigate(e, this);
-		var siblings = this.parentNode.childNodes;
-		for (var i = siblings.length - 1; i >= 0; i--) {
-			siblings[i].classList.remove('active');
-		};
-		this.classList.add('active');
+		switchNavigationTab(this);
 	});
 };
+
+document.addEventListener('wheel', function(e) {
+	var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+
+	// if scrolled >= section offset from top
+	if ((scrolled >= section.offsetTop('about')) && (scrolled < section.offsetTop('service'))) {
+		switchNavigationTab(link.about);
+	} else if ((scrolled >= section.offsetTop('service')) && (scrolled < section.offsetTop('value'))) {
+		switchNavigationTab(link.service);
+	} else if ((scrolled >= section.offsetTop('value')) && (scrolled < section.offsetTop('portfolio'))) {
+		switchNavigationTab(link.value);
+	} else if ((scrolled >= section.offsetTop('portfolio')) && (scrolled < section.offsetTop('me'))) {
+		switchNavigationTab(link.portfolio);
+	} else if ((scrolled >= section.offsetTop('me')) && (scrolled < section.offsetTop('contact'))) {
+		switchNavigationTab(link.me);
+	} else if (scrolled >= section.offsetTop('contact')) {
+		switchNavigationTab(link.contact);
+	}
+
+});
