@@ -3,7 +3,6 @@ section#think
 	border-bottom: 1px solid #aaa
 	padding: 2rem 0 1.5rem
 	position: relative
-	z-index: 1
 	clearfix()
 	
 	.one-third
@@ -31,3 +30,14 @@ section#think
 		p
 			letter-spacing: 1px
 			line-height: 1.8
+			
+	@media screen and (max-width: 1100px)
+		padding: 3rem 0
+		.one-third
+			width: 100%
+			float: none
+			margin: 0
+			padding: 0 10%
+			margin-bottom: 3rem
+			&:nth-last-child(1)
+				margin-bottom: 0

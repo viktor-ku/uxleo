@@ -1,0 +1,61 @@
+.mobile &
+	position: fixed
+	left: 0
+	right: 0
+	height: $nav-bar-height
+	background: none
+	border-bottom: none
+	z-index: 2
+	padding: 0
+
+	.project-logo
+		display: none
+
+	#nav-toggle // button
+		display: block
+		background: url('/assets/icons/menu.svg') no-repeat
+		$square(3.5rem)
+		position: fixed
+		top: 1rem
+		right: 1rem
+		z-index: 2
+
+	#nav
+		visibility: hidden
+		opacity: 0
+		transform: translateY(-3rem) scale(.9)
+		height: auto
+		float: none
+		position: fixed
+		top: 0
+		left: 0
+		right: 0
+		background: #111
+		overflow: hidden
+		transition: all 300ms ease
+		
+		&.show-nav
+			opacity: 1
+			visibility: visible
+			transform: translateY(0) scale(1)
+		
+		a
+			font-size: 2em
+			font-weight: 300
+			width: 100%
+			height: auto
+			line-height: auto
+			padding: 0
+			color: #999
+			text-align: center
+			text-decoration: none
+			display: block
+			float: none
+			transition: all 200ms ease-out
+			&:hover
+				color: #eee
+				text-shadow: none
+			&.active
+			&:active
+				background-color: rgba($blacky, .9)
+				color: #eee

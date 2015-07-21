@@ -1,26 +1,24 @@
 &
 	position: fixed
-	width: 100%
+	left: 0
+	right: 0
 	height: $nav-bar-height
 	background: rgba(#222, .9)
 	border-bottom: 1px solid $blacky
 	z-index: 2
-
-	.nav-bar-inner
-		width: $nav-bar-width
-		margin: auto
-		height: $nav-bar-height
-		padding-left: 1rem
-		
-	#logo
+	padding: 0 22.5%
+			
+	.project-logo
 		float: left
 		background: url('/assets/icons/logo.svg') no-repeat
 		background-size: contain
 		width: 4rem
 		height: 1.5rem
-		box-sizing: border-box
 		margin-top: .9rem
-		
+
+	#nav-toggle // button
+		display: none
+
 	#nav
 		height: 100%
 		float: left

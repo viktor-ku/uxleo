@@ -1,4 +1,5 @@
 
+
 // portfolio all stuff
 
 var sectionPortfolio = document.getElementById('portfolio');
@@ -123,6 +124,7 @@ var navigate = function(event, item) {
 		scroll.to(dest);
 		return;
 	}
+	closeNavigation();
 };
 
 toContactBtn.addEventListener('click', function(e) {
@@ -155,4 +157,28 @@ document.addEventListener('wheel', function(e) {
 		switchNavigationTab(link.contact);
 	}
 
+});
+
+
+
+
+var navToggle = document.getElementById('nav-toggle');
+
+var navigation = document.getElementById('nav');
+
+var openNavigation = function() {
+	navigation.classList.add('show-nav');
+};
+
+var closeNavigation = function() {
+	navigation.classList.remove('show-nav');
+};
+
+var toggleBtn = new Hammer(navToggle); 
+toggleBtn.on('tap', function(e) {
+	if (navigation.className !== 'show-nav') {
+		openNavigation();
+	} else {
+		closeNavigation();
+	}
 });

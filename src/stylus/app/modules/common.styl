@@ -5,7 +5,10 @@ button
 	font-family: Alegreya Sans, sans-serif
 	font-size: 1em/1.5
 	font-weight 500
-	
+
+body
+	cursor: default
+
 blockquote
 	&:before
 		content: '“'
@@ -13,7 +16,7 @@ blockquote
 		content '”'
 		
 body.no-scroll
-	//
+	overflow: hidden
 
 button
 	background: transparent
@@ -44,3 +47,19 @@ button
 	$put-icon("home")
 	$put-icon("pinterest")
 	$put-icon("telephone")
+	
+.title
+	text-align: center
+	h3
+		letter-spacing: 1px
+		line-height: 1.4
+		margin: 0
+		font-weight: 600
+		font-size: 2.25em
+		text-transform: uppercase
+		font-family: Lato, sans-serif
+		padding: 0 3rem
+		&.grey-title
+			color: rgba(#444, .8)
+		&.white-title
+			color: rgba(#fff, .8)

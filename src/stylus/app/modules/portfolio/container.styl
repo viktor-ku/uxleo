@@ -7,7 +7,7 @@
 		width: 32%
 		float: left
 		margin-right: 2%
-		height: 240px
+		height: auto
 		position: relative
 		overflow: hidden
 		margin-bottom: 1rem
@@ -49,7 +49,7 @@
 			font-weight: 700
 
 		p
-			margin-top: 3.5srem
+			margin-top: 17.5%
 			font-size: 1.3em
 			color: #fff
 
@@ -65,3 +65,88 @@
 				background: rgba(#fff, 1)
 			&:focus
 				box-shadow: none
+				
+	@media screen and (max-width: 1150px)
+		width: 960px
+
+		.item
+			width: 48%
+			float: left
+			margin-right: 2%
+			margin-bottom: 1rem
+
+			&:nth-last-child(1)
+			&:nth-last-child(2)
+			&:nth-last-child(3)
+				margin-bottom: 1rem
+			&:nth-child(3n)
+				margin-right: 2%
+			&:nth-child(2n)
+				margin-bottom: 1rem
+			&:nth-last-child(1)
+			&:nth-last-child(2)
+				margin-bottom: 0
+				
+		.overlay
+			p
+				margin-top: 20%
+				
+	@media screen and (max-width: 1000px)
+		width: 90%
+		margin: 5% auto
+
+	@media screen and (max-width: 860px)
+		width: 95%
+		margin: 5% auto
+
+		.overlay
+			p
+				margin-top: 17.5%
+
+	@media screen and (max-width: 700px)
+		width: 90%
+
+		.item
+			width: 100%
+			float: left
+			margin-right: 0
+			margin-bottom: 1rem
+
+			&:nth-last-child(1)
+			&:nth-last-child(2)
+			&:nth-last-child(3)
+				margin-bottom: 0
+			&:nth-child(3n)
+				margin-right: 0
+			&:nth-child(2n)
+				margin-bottom: 0
+			&:nth-last-child(1)
+			&:nth-last-child(2)
+				margin-bottom: 0
+			&:nth-child(1n)
+				margin-bottom: 1rem
+			&:nth-last-child(1)
+				margin-bottom: 0
+				
+		.overlay
+			p
+				margin-top: 25%
+
+	@media screen and (max-width: 600px)
+		width: 95%
+		margin: 1rem auto
+
+	@media screen and (max-width: 550px)
+		.overlay
+			p
+				margin-top: 20%
+
+	@media screen and (max-width: 440px)
+		.overlay
+			p
+				margin-top: 17.5%
+
+	@media screen and (max-width: 380px)
+		.overlay
+			p
+				margin-top: 15%
