@@ -1,3 +1,4 @@
-
+/public
 /dest
 /node_modules
+**/*.log

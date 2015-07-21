@@ -3,44 +3,35 @@
 	left: 0
 	right: 0
 	height: $nav-bar-height
-	background: none
-	border-bottom: none
+	background: linear-gradient(#222, darken(#222, 10%))
+	border-bottom: 1px solid $blacky
 	z-index: 2
-	padding: 0
+	padding: 0 .5rem
 
-	.project-logo
-		display: none
-
-	#nav-toggle // button
-		display: block
-		background: url('/assets/icons/menu.svg') no-repeat
-		$square(3.5rem)
-		position: fixed
-		top: 1rem
-		right: 1rem
-		z-index: 2
+	#project-logo
+		float: right
 
 	#nav
 		visibility: hidden
 		opacity: 0
-		transform: translateY(-3rem) scale(.9)
+		transform: translateX(2rem)
 		height: auto
 		float: none
-		position: fixed
-		top: 0
+		position: absolute
+		top: 51px
 		left: 0
 		right: 0
-		background: #111
+		background: darken(#222, 10%)
 		overflow: hidden
 		transition: all 300ms ease
 		
 		&.show-nav
 			opacity: 1
 			visibility: visible
-			transform: translateY(0) scale(1)
+			transform: translateX(0)
 		
 		a
-			font-size: 2em
+			font-size: 1.75em
 			font-weight: 300
 			width: 100%
 			height: auto

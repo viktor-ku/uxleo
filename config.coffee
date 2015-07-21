@@ -1,7 +1,7 @@
 # 
 # define destination and source directories
 
-dest = "dest"
+dest = "public"
 src = "src"
 
 # 
@@ -21,9 +21,7 @@ config =
 			stylus: "#{src}/stylus/app/app.styl"
 			js: [
 					"#{src}/js/app/intro/i.js"
-					"#{src}/js/app/hammer.js"
 					"#{src}/js/app/core-functions.js"
-					"#{src}/js/app/smoothscroll.js"
 					"#{src}/js/app/mobile.js"
 					"#{src}/js/app/main.js"
 					"#{src}/js/app/intro/o.js"
@@ -32,7 +30,10 @@ config =
 			icons: "#{src}/icons/**/*"
 		vendor:
 			stylus: "#{src}/stylus/vendor/vendor.styl"
-			js: []
+			js: [
+					"#{src}/bower/Tocca.js/Tocca.min.js"
+					"#{src}/bower/smooth-scroll/dist/js/smooth-scroll.min.js"
+				]
 		dest:
 			css: "#{dest}/assets/css/app.css"
 	watch:

@@ -2,15 +2,18 @@ section#challenge
 	margin-bottom: 3rem
 			
 	.container
-		width: 1160px
+		width: 90%
 		margin: 0 auto
 		clearfix()
+
+	.title
+		margin: 3rem 0 2rem
 		
 	.group
-		width: 32.666666%
+		width: 32%
 		float: left
 		box-sizing: border-box
-		margin-right: 1%
+		margin-right: 2%
 		&:nth-last-child(1)
 			margin-right: 0
 
@@ -27,3 +30,13 @@ section#challenge
 				color: #333
 				font-size: 1.1em
 				line-height: 1.5
+
+	@media screen and (max-width: 830px)
+		.title
+			margin: 3rem 0 .75rem
+		.group
+			width: 100%
+			float: none
+			margin-right: 0
+			text-align: center
+			padding: 1rem

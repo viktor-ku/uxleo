@@ -120,10 +120,15 @@ var switchNavigationTab = function(data) {
 var navigate = function(event, item) {
 	if (!mobile.any()) {
 		event.preventDefault();
-		var dest = item.hash.slice(1);
-		scroll.to(dest);
+		var dest = item.hash;
+		var scrollOptions = { speed: 768, easing: 'easeInOutQuint', updateURL: false, offset: 50 };
+		smoothScroll.animateScroll(null, dest, scrollOptions);
 		return;
 	}
+	event.preventDefault();
+	var dest = item.hash;
+	var scrollOptions = { speed: 1024, easing: 'easeInOutQuart', updateURL: false, offset: 50 };
+	smoothScroll.animateScroll(null, dest, scrollOptions);
 	closeNavigation();
 };
 
@@ -162,7 +167,7 @@ document.addEventListener('wheel', function(e) {
 
 
 
-var navToggle = document.getElementById('nav-toggle');
+var toggleIcon = document.getElementById('project-logo');
 
 var navigation = document.getElementById('nav');
 
@@ -174,8 +179,7 @@ var closeNavigation = function() {
 	navigation.classList.remove('show-nav');
 };
 
-var toggleBtn = new Hammer(navToggle); 
-toggleBtn.on('tap', function(e) {
+toggleIcon.addEventListener('tap', function(e) {
 	if (navigation.className !== 'show-nav') {
 		openNavigation();
 	} else {

@@ -1,0 +1,15 @@
+{
+  "name": "Tocca.js",
+  "homepage": "https://github.com/GianlucaGuarini/Tocca.js",
+  "version": "0.1.6",
+  "_release": "0.1.6",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.1.6",
+    "commit": "472c1800cce2a6551b0525826f6e7e8e5dfb2fff"
+  },
+  "_source": "git://github.com/GianlucaGuarini/Tocca.js.git",
+  "_target": "~0.1.6",
+  "_originalSource": "Tocca.js",
+  "_direct": true
+}

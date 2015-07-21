@@ -82,7 +82,10 @@ gulp.task 'js:vendor', ->
 
 gulp.task 'imagemin', ->
 	gulp.src config.file.src.image
-		.pipe do imagemin
+		.pipe imagemin {
+			progressive: true
+			optimizationLevel: 7
+		}
 		.pipe gulp.dest config.path.dest.image
 		.pipe do browserSync.stream
 
