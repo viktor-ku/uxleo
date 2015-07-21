@@ -33,7 +33,7 @@ for (var i = items.length - 1; i >= 0; i--) {
 			var dataOutlet = this.dataset.outlet;
 			var modal = document.getElementById(dataOutlet);
 
-			if (modal === null) {
+			if (modal === null || modal === undefined) {
 				console.error('No match modal here!' + ' => ' + modal);
 			} else {
 				modal.classList.add('show-modal');
@@ -41,15 +41,18 @@ for (var i = items.length - 1; i >= 0; i--) {
 
 			var closeBtn = modal.getElementsByClassName('modal-close')[0];
 
-			closeBtn.addEventListener('click', function() {
+			var closeModal = function() {
 				modal.classList.remove('show-modal');
 				document.body.classList.remove('no-scroll');
+			};
+
+			closeBtn.addEventListener('click', function() {
+				closeModal();
 			});
 
 			modal.addEventListener('click', function(e) {
 				if (e.target === this) {
-					modal.classList.remove('show-modal');
-					document.body.classList.remove('no-scroll');
+					closeModal();
 				}
 			});
 		});
@@ -63,32 +66,12 @@ var navLinks = document.getElementById('nav').children;
 var toContactBtn = document.getElementById('to-contact');
 
 var section = {
-	about: document.getElementById('about'),
-	service: document.getElementById('service'),
-	value: document.getElementById('value'),
-	portfolio: document.getElementById('portfolio'),
-	me: document.getElementById('me'),
-	contact: document.getElementById('contact'),
-	offsetTop: function(data) {
-		if (typeof data === 'string') {
-			switch(data) {
-				case 'about':
-					return this.about.offsetTop;
-				case 'service':
-					return this.service.offsetTop;
-				case 'value':
-					return this.value.offsetTop;
-				case 'portfolio':
-					return this.portfolio.offsetTop;
-				case 'me':
-					return this.me.offsetTop;
-				case 'contact':
-					return this.contact.offsetTop;
-				default:
-					return debug(data)
-			}
-		}
-	},
+	about: document.getElementById('about').offsetTop,
+	service: document.getElementById('service').offsetTop,
+	value: document.getElementById('value').offsetTop,
+	portfolio: document.getElementById('portfolio').offsetTop,
+	me: document.getElementById('me').offsetTop,
+	contact: document.getElementById('contact').offsetTop,
 };
 
 var searchLinkByHash = function(data) {
@@ -118,18 +101,16 @@ var switchNavigationTab = function(data) {
 };
 
 var navigate = function(event, item) {
-	if (!mobile.any()) {
-		event.preventDefault();
-		var dest = item.hash;
+	if (mobile.any()) {
+		var scrollOptions = { speed: 1024, easing: 'easeInOutQuart', updateURL: false, offset: 50 };
+		closeNavigation();
+	}
+	else {
 		var scrollOptions = { speed: 768, easing: 'easeInOutQuint', updateURL: false, offset: 50 };
-		smoothScroll.animateScroll(null, dest, scrollOptions);
-		return;
 	}
 	event.preventDefault();
 	var dest = item.hash;
-	var scrollOptions = { speed: 1024, easing: 'easeInOutQuart', updateURL: false, offset: 50 };
 	smoothScroll.animateScroll(null, dest, scrollOptions);
-	closeNavigation();
 };
 
 toContactBtn.addEventListener('click', function(e) {
@@ -147,28 +128,23 @@ for (var i = navLinks.length - 1; i >= 0; i--) {
 document.addEventListener('wheel', function(e) {
 	var scrolled = window.pageYOffset || document.documentElement.scrollTop;
 
-	// if scrolled >= section offset from top
-	if ((scrolled >= section.offsetTop('about')) && (scrolled < section.offsetTop('service'))) {
+	if ((scrolled >= section.about) && (scrolled < section.service)) {
 		switchNavigationTab(link.about);
-	} else if ((scrolled >= section.offsetTop('service')) && (scrolled < section.offsetTop('value'))) {
+	} else if ((scrolled >= section.service) && (scrolled < section.value)) {
 		switchNavigationTab(link.service);
-	} else if ((scrolled >= section.offsetTop('value')) && (scrolled < section.offsetTop('portfolio'))) {
+	} else if ((scrolled >= section.value) && (scrolled < section.portfolio)) {
 		switchNavigationTab(link.value);
-	} else if ((scrolled >= section.offsetTop('portfolio')) && (scrolled < section.offsetTop('me'))) {
+	} else if ((scrolled >= section.portfolio) && (scrolled < section.me)) {
 		switchNavigationTab(link.portfolio);
-	} else if ((scrolled >= section.offsetTop('me')) && (scrolled < section.offsetTop('contact'))) {
+	} else if ((scrolled >= section.me) && (scrolled < section.contact)) {
 		switchNavigationTab(link.me);
-	} else if (scrolled >= section.offsetTop('contact')) {
+	} else if (scrolled >= section.contact) {
 		switchNavigationTab(link.contact);
 	}
 
 });
 
-
-
-
 var toggleIcon = document.getElementById('project-logo');
-
 var navigation = document.getElementById('nav');
 
 var openNavigation = function() {
