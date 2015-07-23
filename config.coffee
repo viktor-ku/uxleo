@@ -19,6 +19,7 @@ config =
 		src:
 			jade: "#{src}/jade/index.jade"
 			stylus: "#{src}/stylus/app/app.styl"
+			coffee: "#{src}/coffee/main.coffee"
 			js: [
 					"#{src}/js/app/intro/i.js"
 					"#{src}/js/app/core-functions.js"

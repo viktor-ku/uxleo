@@ -12,6 +12,7 @@ csso = require 'gulp-csso'
 runSequence = require 'run-sequence'
 browserSync = require('browser-sync').create()
 svgmin = require 'gulp-svgmin'
+coffee = require 'gulp-coffee'
 config = require './config'
 
 gulp.task 'serve', ->
@@ -55,6 +56,14 @@ gulp.task 'stylus:vendor', ->
 		.pipe do stylus
 		.pipe do csso
 		.pipe gulp.dest config.path.dest.css
+		.pipe do browserSync.stream
+
+gulp.task 'coffee', ->
+	gulp.src config.file.src.coffee
+		.pipe do plumber
+		.pipe do coffee
+		.pipe concat 'app.js'
+		.pipe gulp.dest config.path.dest.js
 		.pipe do browserSync.stream
 
 gulp.task 'js:app', ->
