@@ -38,6 +38,7 @@ config =
 		dest:
 			css: "#{dest}/assets/css/app.css"
 	watch:
+		coffee: "#{src}/coffee/**/*.coffee"
 		stylus:
 			app: "#{src}/stylus/app/**/*.styl"
 			vendor: "#{src}/stylus/vendor/vendor.styl"

@@ -58,7 +58,7 @@ gulp.task 'stylus:vendor', ->
 		.pipe gulp.dest config.path.dest.css
 		.pipe do browserSync.stream
 
-gulp.task 'coffee', ->
+gulp.task 'coffee:app', ->
 	gulp.src config.file.src.coffee
 		.pipe do plumber
 		.pipe do coffee
@@ -66,16 +66,10 @@ gulp.task 'coffee', ->
 		.pipe gulp.dest config.path.dest.js
 		.pipe do browserSync.stream
 
-gulp.task 'js:app', ->
-	gulp.src config.file.src.js
+gulp.task 'coffee:app:production', ->
+	gulp.src config.file.src.coffee
 		.pipe do plumber
-		.pipe concat 'app.js'
-		.pipe gulp.dest config.path.dest.js
-		.pipe do browserSync.stream
-
-gulp.task 'js:app:production', ->
-	gulp.src config.file.src.js
-		.pipe do plumber
+		.pipe do coffee
 		.pipe concat 'app.js'
 		.pipe do uglify
 		.pipe gulp.dest config.path.dest.js
@@ -111,8 +105,8 @@ gulp.task 'watch', ->
 	watch config.watch.stylus.vendor, ->
 		gulp.start 'stylus:vendor'
 
-	watch config.watch.js.app, ->
-		gulp.start 'js:app'
+	watch config.watch.coffee, ->
+		gulp.start 'coffee:app'
 
 	watch config.watch.js.vendor, ->
 		gulp.start 'js:vendor'
@@ -130,7 +124,7 @@ gulp.task 'default', ['serve', 'watch']
 gulp.task 'build:dev:all',
 [
 	'stylus:app'
-	'js:app'
+	'coffee:app'
 	'jade'
 	'imagemin'
 	'icons'
@@ -141,14 +135,14 @@ gulp.task 'build:dev:all',
 gulp.task 'build:dev',
 [
 	'stylus:app'
-	'js:app'
+	'coffee:app'
 	'jade'
 ]
 
 gulp.task 'build:production:all',
 [
 	'stylus:app:production'
-	'js:app:production'
+	'coffee:app:production'
 	'stylus:vendor'
 	'js:vendor'
 	'imagemin'
