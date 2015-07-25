@@ -13,4 +13,11 @@ npm install
 gulp go
 ```
 
+**To build a production version:**  
+
+```
+npm install
+gulp build:production:all
+```
+
 That will build a dev version of the project into /dest and start serve and watch :)
