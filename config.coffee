@@ -31,10 +31,7 @@ config =
 			icons: "#{src}/icons/**/*"
 		vendor:
 			stylus: "#{src}/stylus/vendor/vendor.styl"
-			js: [
-					"#{src}/bower/Tocca.js/Tocca.min.js"
-					"#{src}/bower/smooth-scroll/dist/js/smooth-scroll.min.js"
-				]
+			js: "#{src}/js/vendor.js"
 		dest:
 			css: "#{dest}/assets/css/app.css"
 	watch:

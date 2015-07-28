@@ -1,102 +1,14 @@
 gulp = require 'gulp'
-concat = require 'gulp-concat'
-jade = require 'gulp-jade'
-plumber = require 'gulp-plumber'
-stylus = require 'gulp-stylus'
-uglify = require 'gulp-uglify'
 watch = require 'gulp-watch'
-imagemin = require 'gulp-imagemin'
-postcss = require 'gulp-postcss'
-autoprefixer = require 'autoprefixer-core'
-csso = require 'gulp-csso'
-runSequence = require 'run-sequence'
-browserSync = require('browser-sync').create()
-svgmin = require 'gulp-svgmin'
-coffee = require 'gulp-coffee'
 config = require './config'
 
-gulp.task 'serve', ->
-	browserSync.init
-		server:
-			baseDir: config.path.dest.html
-
-gulp.task 'jade', ->
-	gulp.src config.file.src.jade
-		.pipe do plumber
-		.pipe jade pretty: true
-		.pipe gulp.dest config.path.dest.html
-		.pipe do browserSync.stream
-
-gulp.task 'jade:production', ->
-	gulp.src config.file.src.jade
-		.pipe do plumber
-		.pipe do jade
-		.pipe gulp.dest config.path.dest.html
-		.pipe do browserSync.stream
-
-gulp.task 'stylus:app', ->
-	gulp.src config.file.src.stylus
-		.pipe do plumber
-		.pipe do stylus
-		.pipe gulp.dest config.path.dest.css
-		.pipe do browserSync.stream
-
-gulp.task 'post-css', ->
-	gulp.src config.file.dest.css
-		.pipe postcss [ autoprefixer browsers: ['last 3 versions'] ]
-		.pipe do csso
-		.pipe gulp.dest config.path.dest.css
-
-gulp.task 'stylus:app:production', ->
-	runSequence 'stylus:app', 'post-css'
-
-gulp.task 'stylus:vendor', ->
-	gulp.src config.file.vendor.stylus
-		.pipe do plumber
-		.pipe do stylus
-		.pipe do csso
-		.pipe gulp.dest config.path.dest.css
-		.pipe do browserSync.stream
-
-gulp.task 'coffee:app', ->
-	gulp.src config.file.src.coffee
-		.pipe do plumber
-		.pipe do coffee
-		.pipe concat 'app.js'
-		.pipe gulp.dest config.path.dest.js
-		.pipe do browserSync.stream
-
-gulp.task 'coffee:app:production', ->
-	gulp.src config.file.src.coffee
-		.pipe do plumber
-		.pipe do coffee
-		.pipe concat 'app.js'
-		.pipe do uglify
-		.pipe gulp.dest config.path.dest.js
-		.pipe do browserSync.stream
-
-gulp.task 'js:vendor', ->
-	gulp.src config.file.vendor.js
-		.pipe do plumber
-		.pipe concat 'vendor.js'
-		.pipe do uglify
-		.pipe gulp.dest config.path.dest.js
-		.pipe do browserSync.stream
-
-gulp.task 'imagemin', ->
-	gulp.src config.file.src.image
-		.pipe imagemin {
-			progressive: true
-			optimizationLevel: 7
-		}
-		.pipe gulp.dest config.path.dest.image
-		.pipe do browserSync.stream
-
-gulp.task 'icons', ->
-	gulp.src config.file.src.icons
-		.pipe do svgmin
-		.pipe gulp.dest config.path.dest.icons
-		.pipe do browserSync.stream
+require './tasks/serve'
+require './tasks/jade'
+require './tasks/stylus'
+require './tasks/coffee'
+require './tasks/js.vendor'
+require './tasks/images'
+require './tasks/icons'
 
 gulp.task 'watch', ->
 	watch config.watch.stylus.app, ->
