@@ -16,6 +16,7 @@
   "dependencies": {
     "normalize.styl": "~3.0.3",
     "Tocca.js": "~0.1.6",
-    "smooth-scroll": "https://github.com/cferdinandi/smooth-scroll.git#~7.0.2"
+    "smooth-scroll": "https://github.com/cferdinandi/smooth-scroll.git#~7.0.2",
+    "thin-query": "*"
   }
 }
