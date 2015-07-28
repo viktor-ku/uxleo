@@ -1,8 +1,8 @@
 gulp = require 'gulp'
 jade = require 'gulp-jade'
 plumber = require 'gulp-plumber'
-browserSync = require('browser-sync').create()
 config = require '../config'
+browserSync = require './serve'
 
 gulp.task 'jade', ->
 	gulp.src config.file.src.jade

@@ -11,6 +11,8 @@ class Portfolio
 		@hoverItem @itemMouseEnter, @itemMouseLeave
 		do @toggleModal
 
+		# console.log jQuery
+
 	hoverItem: (mouseenter, mouseleave) ->
 		for item in @items
 			item.addEventListener 'mouseenter', mouseenter
