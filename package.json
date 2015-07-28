@@ -20,6 +20,7 @@
     "gulp-jade": "^1.0.1",
     "gulp-plumber": "^1.0.1",
     "gulp-postcss": "^5.1.9",
+    "gulp-rename": "^1.2.2",
     "gulp-rigger": "^0.5.8",
     "gulp-stylus": "^2.0.5",
     "gulp-svgmin": "^1.2.0",
