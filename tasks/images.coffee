@@ -1,7 +1,7 @@
 gulp = require 'gulp'
 imagemin = require 'gulp-imagemin'
-browserSync = require('browser-sync').create()
 config = require '../config'
+browserSync = require './serve'
 
 gulp.task 'imagemin', ->
 	gulp.src config.file.src.image

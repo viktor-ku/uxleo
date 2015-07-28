@@ -1,7 +1,7 @@
 gulp = require 'gulp'
 svgmin = require 'gulp-svgmin'
-browserSync = require('browser-sync').create()
 config = require '../config'
+browserSync = require './serve'
 
 gulp.task 'icons', ->
 	gulp.src config.file.src.icons

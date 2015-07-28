@@ -4,4 +4,7 @@ config = require '../config'
 
 gulp.task 'serve', ->
 	browserSync.init
-		server: config.path.dest.html
+		server: 
+			baseDir: config.path.dest.html
+
+module.exports = browserSync

@@ -2,7 +2,6 @@ gulp = require 'gulp'
 watch = require 'gulp-watch'
 config = require './config'
 
-require './tasks/serve'
 require './tasks/jade'
 require './tasks/stylus'
 require './tasks/coffee'

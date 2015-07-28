@@ -3,10 +3,10 @@ concat = require 'gulp-concat'
 plumber = require 'gulp-plumber'
 uglify = require 'gulp-uglify'
 coffee = require 'gulp-coffee'
-browserSync = require('browser-sync').create()
 rigger = require 'gulp-rigger'
 rename = require 'gulp-rename'
 config = require '../config'
+browserSync = require './serve'
 
 gulp.task 'coffee:app', ->
 	gulp.src config.file.src.coffee

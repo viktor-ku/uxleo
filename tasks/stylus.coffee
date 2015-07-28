@@ -1,12 +1,12 @@
 gulp = require 'gulp'
 plumber = require 'gulp-plumber'
 stylus = require 'gulp-stylus'
-browserSync = require('browser-sync').create()
 csso = require 'gulp-csso'
 postcss = require 'gulp-postcss'
 autoprefixer = require 'autoprefixer-core'
 runSequence = require 'run-sequence'
 config = require '../config'
+browserSync = require './serve'
 
 gulp.task 'stylus:app', ->
 	gulp.src config.file.src.stylus
