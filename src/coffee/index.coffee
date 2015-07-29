@@ -1,5 +1,9 @@
 
-#= navigation.class.coffee
+#= helpers.class.coffee
 #= portfolio.class.coffee
 
-prtf = new Portfolio document.getElementById 'portfolio'	
+portf = new Portfolio
+
+portf.hover '.item', portf.itemEnter, portf.itemLeave
+
+portf.click 'button[data-outlet]', portf.openModal

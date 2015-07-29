@@ -10,6 +10,7 @@ Here we have source code of the project.
 
 ```
 npm install
+bower install
 gulp go
 ```
 
