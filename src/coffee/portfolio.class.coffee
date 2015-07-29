@@ -11,8 +11,6 @@ class Portfolio
 		@hoverItem @itemMouseEnter, @itemMouseLeave
 		do @toggleModal
 
-		# console.log jQuery
-
 	hoverItem: (mouseenter, mouseleave) ->
 		for item in @items
 			item.addEventListener 'mouseenter', mouseenter
@@ -41,6 +39,3 @@ class Portfolio
 	itemMouseLeave: ->
 		@.getElementsByTagName('img')[0].classList.remove 'hovered'
 		@.getElementsByClassName('overlay')[0].classList.remove 'show'
-
-
-prtf = new Portfolio document.getElementById 'portfolio'
