@@ -1,29 +1,22 @@
 
 class Portfolio extends Helpers
 
-	constructor: () ->
+	constructor: ->
 
 	openModal: ->
 		outlet = @.dataset.outlet
 		modal = document.getElementById outlet
-		
+		modal.classList.add 'show-modal'		
+
+	closeModal: (e) ->
+		openedModal = document.querySelector '.modal.show-modal'
+		if e.target is @ or e.target is openedModal.querySelector 'button.modal-close' 
+			openedModal.classList.remove 'show-modal'
 
 	itemEnter: ->
-		overlay = @.querySelector('.overlay')
-		img = @.querySelector('img')
-		TweenLite.to overlay, .3,
-			opacity: 1
-			ease: Power2.easeOut
-		TweenLite.to img, .3,
-			scale: 1.15
-			ease: Power2.easeOut
+		overlay = @.querySelector '.overlay'
+		overlay.classList.add 'show-overlay'
 
 	itemLeave: ->
-		overlay = @.querySelector('.overlay')
-		img = @.querySelector('img')
-		TweenLite.to overlay, .3,
-			opacity: 0
-			ease: Power2.easeOut
-		TweenLite.to img, .3,
-			scale: 1
-			ease: Power2.easeOut
+		overlay = @.querySelector '.overlay'
+		overlay.classList.remove 'show-overlay'
