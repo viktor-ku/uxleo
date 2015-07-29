@@ -1,41 +1,29 @@
 
-class Portfolio
+class Portfolio extends Helpers
 
-	constructor: (sectionNode) ->
-		return if not sectionNode?
-		@section = sectionNode
-		@container = @section.getElementsByClassName('container')[0]
-		@items = @container.getElementsByClassName 'item'
-		@buttons = @container.getElementsByTagName('button')
+	constructor: () ->
 
-		@hoverItem @itemMouseEnter, @itemMouseLeave
-		do @toggleModal
+	openModal: ->
+		outlet = @.dataset.outlet
+		modal = document.getElementById outlet
+		
 
-	hoverItem: (mouseenter, mouseleave) ->
-		for item in @items
-			item.addEventListener 'mouseenter', mouseenter
-			item.addEventListener 'mouseleave', mouseleave
-		return
+	itemEnter: ->
+		overlay = @.querySelector('.overlay')
+		img = @.querySelector('img')
+		TweenLite.to overlay, .3,
+			opacity: 1
+			ease: Power2.easeOut
+		TweenLite.to img, .3,
+			scale: 1.15
+			ease: Power2.easeOut
 
-	toggleModal: ->
-		for button in @buttons
-			button.addEventListener 'click', ->
-				modal = document.getElementById @.dataset.outlet
-				closeButton = modal.getElementsByClassName('modal-close')[0]
-
-				modal.classList.add 'show-modal'
-				closeButton.addEventListener 'click', ->
-					modal.classList.remove 'show-modal'
-				modal.addEventListener 'click', (e) ->
-					if e.target is @
-						modal.classList.remove 'show-modal'
-				return
-		return
-
-	itemMouseEnter: ->
-		@.getElementsByTagName('img')[0].classList.add 'hovered'
-		@.getElementsByClassName('overlay')[0].classList.add 'show'
-
-	itemMouseLeave: ->
-		@.getElementsByTagName('img')[0].classList.remove 'hovered'
-		@.getElementsByClassName('overlay')[0].classList.remove 'show'
+	itemLeave: ->
+		overlay = @.querySelector('.overlay')
+		img = @.querySelector('img')
+		TweenLite.to overlay, .3,
+			opacity: 0
+			ease: Power2.easeOut
+		TweenLite.to img, .3,
+			scale: 1
+			ease: Power2.easeOut
