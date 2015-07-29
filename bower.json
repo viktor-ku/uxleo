@@ -1,8 +1,9 @@
 {
-  "name": "uxleo.zero",
+  "name": "uxleo",
   "version": "0.0.0",
+  "homepage": "https://github.com/ViktorKonsta/uxleo",
   "authors": [
-    "Viktor <viktor.konsta@gmail.com>"
+    "ViktorKonsta <viktor.konsta@gmail.com>"
   ],
   "license": "MIT",
   "ignore": [
@@ -14,9 +15,6 @@
     "tests"
   ],
   "dependencies": {
-    "normalize.styl": "~3.0.3",
-    "Tocca.js": "~0.1.6",
-    "smooth-scroll": "https://github.com/cferdinandi/smooth-scroll.git#~7.0.2",
-    "thin-query": "*"
+    "normalize-styl": "latest"
   }
 }

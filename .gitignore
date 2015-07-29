@@ -1,4 +1,4 @@
-/public
-/dest
-/node_modules
+/public/
+/src/bower/
+/node_modules/
 **/*.log

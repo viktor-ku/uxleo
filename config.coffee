@@ -31,7 +31,7 @@ config =
 			icons: "#{src}/icons/**/*"
 		vendor:
 			stylus: "#{src}/stylus/vendor/vendor.styl"
-			js: "#{src}/js/vendor.js"
+			js: "#{src}/js/vendor/vendor.js"
 		dest:
 			css: "#{dest}/assets/css/app.css"
 	watch:
@@ -41,7 +41,7 @@ config =
 			vendor: "#{src}/stylus/vendor/vendor.styl"
 		js:
 			app: "#{src}/js/app/**/*.js"
-			vendor: "#{src}/js/vendor/*.js"
+			vendor: "#{src}/js/vendor/vendor.js"
 		jade: "#{src}/jade/**/*.jade"
 		icons: "#{src}/icons/**/*.svg"
 
