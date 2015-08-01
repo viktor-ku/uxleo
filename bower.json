@@ -1,20 +1,21 @@
 {
-	"name": "uxleo",
-	"version": "0.0.0",
-	"homepage": "https://github.com/ViktorKonsta/uxleo",
-	"authors": [
-		"ViktorKonsta <viktor.konsta@gmail.com>"
-	],
-	"license": "MIT",
-	"ignore": [
-		"**/.*",
-		"node_modules",
-		"bower_components",
-		"src/bower",
-		"test",
-		"tests"
-	],
-	"dependencies": {
-		"normalize-styl": "latest"
-	}
+  "name": "uxleo",
+  "version": "0.0.0",
+  "homepage": "https://github.com/ViktorKonsta/uxleo",
+  "authors": [
+    "ViktorKonsta <viktor.konsta@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize-styl": "latest",
+    "waypoints": "~3.1.1"
+  }
 }
