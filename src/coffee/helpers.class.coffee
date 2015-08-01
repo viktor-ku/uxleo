@@ -8,7 +8,7 @@ class Helpers
 			document.body.classList.add 'desktop'
 
 	selector: (nodes) ->
-		if typeof nodes is 'string' and nodes? then document.querySelectorAll nodes
+		if nodes? and typeof nodes is 'string' then document.querySelectorAll nodes
 		else nodes
 
 	hover: (el, mouseenter, mouseleave) ->
