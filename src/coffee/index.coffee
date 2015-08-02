@@ -10,3 +10,8 @@ portf.click '.modal', portf.closeModal
 
 nav = new Navigation
 nav.click '[data-nav-target]', nav.clicker.bind nav
+
+if nav.mobile.any()
+	document.body.classList.add 'mobile'
+else
+	document.body.classList.add 'desktop'
