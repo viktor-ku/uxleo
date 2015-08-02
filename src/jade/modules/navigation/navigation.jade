@@ -11,7 +11,4 @@
 #project-logo
 #nav
 	each link in links
-		if (link.title === 'About')
-			a(href="##{link.title.toLowerCase()}", class="active") #{link.title}
-		else
-			a(href="##{link.title.toLowerCase()}") #{link.title}
+		a(href="##{link.title.toLowerCase()}") #{link.title}
