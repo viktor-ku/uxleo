@@ -9,6 +9,14 @@ class Helpers
 			document.body.classList.add 'desktop'
 			no
 
+	getElementByData: (dataAttr, dataInner) ->
+		if dataAttr? and dataInner?
+			document.querySelector "[data-#{dataAttr}=#{dataInner}]"
+
+	getLinkByTarget: (target) ->
+		@element = @getElementByData 'nav-target', target
+		@
+
 	selector: (nodes) ->
 		if nodes? and typeof nodes is 'string' then document.querySelectorAll nodes
 		else nodes
