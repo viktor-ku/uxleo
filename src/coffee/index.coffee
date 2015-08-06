@@ -13,5 +13,8 @@ nav.click '[data-nav-target]', nav.clicker.bind nav
 
 if nav.mobile.any()
 	document.body.classList.add 'mobile'
+	nav.tap '#project-logo', nav.touchlogo.bind nav
 else
 	document.body.classList.add 'desktop'
+
+do nav.wheelRouteInit
