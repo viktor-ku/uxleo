@@ -33,3 +33,9 @@ class Helpers
 		for el in elements
 			el.addEventListener 'click', callback
 		return
+
+	tap: (el, callback) ->
+		elements = @selector el
+		for el in elements
+			el.addEventListener 'tap', callback
+		return
