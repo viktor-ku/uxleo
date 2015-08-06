@@ -18,6 +18,7 @@ gulp go
 
 ```
 npm install
+bower install
 gulp build:production:all
 ```
 
