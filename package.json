@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect"
+    "prepublish": "npm run snyk-protect",
+    "prepare": "npm run snyk-protect"
   },
   "author": "ViktorKonsta",
   "license": "ISC",
@@ -29,7 +30,7 @@
     "gulp-uglify": "^1.2.0",
     "gulp-watch": "^4.3.1",
     "run-sequence": "^1.1.1",
-    "snyk": "^1.25.2"
+    "snyk": "^1.85.0"
   },
   "snyk": true
 }
